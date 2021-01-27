@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+}
+.screen{
+    height: 100px;
+    width: 260px;
+    text-align: right;
+    align-content: center;
+    background-color:#2e3642;
+    font-size: 70px;
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+}
+#zero{
+    width: 50%;
+    border-bottom-left-radius: 10px;
+}
+.button{
+    display: inline-block;
+    padding: 20px 0px;
+    text-align: center;
+    font-family: 'NEXON Lv1 Gothic OTF';
+    font-size: 25px;
+    height: 25px;
+    width: 25%;
+    background-color: rgb(145, 144, 156);
+    color: white;
+}
+.operator{
+    background-color:rgb(255, 175, 0);
+}
+.etc{
+    background-color: rgb(74, 75, 82);
+    color: white;
+}
+.last.operator{
+    border-bottom-right-radius: 10px;
+}
