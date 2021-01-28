@@ -10,6 +10,7 @@ const btn_AC = document.querySelector(".JS-AC"),
     btn_sub = document.querySelector(".JS-sub"),
     btn_add = document.querySelector(".JS-add");
     btn_eq = document.querySelector(".JS-eq");
+    btn_dot = document.querySelector(".JS-dot");
 
 const btn_0 = document.querySelector(".JS-0"),
     btn_1 = document.querySelector(".JS-1"),
@@ -22,7 +23,7 @@ const btn_0 = document.querySelector(".JS-0"),
     btn_8 = document.querySelector(".JS-8"),
     btn_9 = document.querySelector(".JS-9");
 
-var operation = "", input = 0, answer = 0, show = 0;
+var operation = "", input = 0, answer = 0, show = 0, Dot = false, decimal;
 
 function update(){
     screen.classList.remove("long");
@@ -32,6 +33,7 @@ function update(){
         operation ="";
         input = 0;
         answer = 0;
+        Dot = false;
         screen.innerText = `Too Long`;
     }
 }
@@ -79,6 +81,7 @@ function allClear(){
 
 function clear(){
     input = 0;
+    Dot = false;
     show = input;
     update();
 }
@@ -91,9 +94,9 @@ function percent(){
 
 function showAnswer(){
     show = answer;
-    if (answer >= 10000000000){
-        answer_e = `${answer}`.length-1;
-        answer_val = `${answer/Math.pow(10, `${answer}`.length-1)
+    if (`${answer}`.length > 10){
+        answer_e = `${parseInt(answer)}`.length-1;
+        answer_val = `${answer/Math.pow(10, answer_e)
                         }`.substr(0,9-`${answer_e}`.length);
         show = `${answer_val}e${answer_e}`;
     }
@@ -109,6 +112,7 @@ function calculate(){
     else answer = input;
     input = 0;
     operation = "";
+    Dot = false;
     showAnswer();
 }
 
@@ -144,62 +148,129 @@ function eq(){
 
 
 function input_0(){
-    input = input * 10 + 0;
-    show = input;
+    if (Dot){
+        show += 0;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 0;
+        show = input;
+    }
     update();
 }
 
 function input_1(){
-    input = input * 10 + 1;
-    show = input;
+    if (Dot){
+        show += 1;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 1;
+        show = input;
+    }
     update();
 }
 
 function input_2(){
-    input = input * 10 + 2;
-    show = input;
+    if (Dot){
+        show += 2;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 2;
+        show = input;
+    }
     update();
 }
 
 function input_3(){
-    input = input * 10 + 3;
-    show = input;
+    if (Dot){
+        show += 3;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 3;
+        show = input;
+    }
     update();
 }
 
 function input_4(){
-    input = input * 10 + 4;
-    show = input;
+    if (Dot){
+        show += 4;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 4;
+        show = input;
+    }
     update();
 }
 
 function input_5(){
-    input = input * 10 + 5;
-    show = input;
+    if (Dot){
+        show += 5;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 5;
+        show = input;
+    }
     update();
 }
 
 function input_6(){
-    input = input * 10 + 6;
-    show = input;
+    if (Dot){
+        show += 6;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 6;
+        show = input;
+    }
     update();
 }
 
 function input_7(){
-    input = input * 10 + 7;
-    show = input;
+    if (Dot){
+        show += 7;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 7;
+        show = input;
+    }
     update();
 }
 
 function input_8(){
-    input = input * 10 + 8;
-    show = input;
+    if (Dot){
+        show += 8;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 8;
+        show = input;
+    }
     update();
 }
 
 function input_9(){
-    input = input * 10 + 9;
-    show = input;
+    if (Dot){
+        show += 9;
+        input = parseFloat(show);
+    }
+    else{
+        input = input * 10 + 9;
+        show = input;
+    }
+    update();
+}
+
+function dot(){
+    Dot = true;
+    decimal = "";
+    show = `${input}.`;
     update();
 }
 
@@ -222,6 +293,7 @@ function waitInput(){
     btn_8.addEventListener("click", input_8);
     btn_9.addEventListener("click", input_9);
     btn_eq.addEventListener("click", eq);
+    btn_dot.addEventListener("click", dot);
     window.addEventListener("keydown", (e) => {
         if (e.key==="0") input_0();
         else if (e.key==="1") input_1();
@@ -240,16 +312,11 @@ function waitInput(){
         else if (e.key==="Delete") allClear();
         else if (e.key==="="||e.key==="Enter") eq();
         else if (e.key==="%") percent();
+        else if (e.key===".") dot();
     })
 }
 
 function init(){
-    operation = "";
-    input = 0;
-    answer = 0;
-    show = 0;
-    update();
-    btnColor();
     waitInput();
 }
 
