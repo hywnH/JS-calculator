@@ -85,7 +85,6 @@ function clear(){
 
 function percent(){
     input = input * 0.01;
-    answer = input;
     show = input;
     update();
 }
@@ -240,6 +239,7 @@ function waitInput(){
         else if (e.key==="*") multiple();
         else if (e.key==="Delete") allClear();
         else if (e.key==="="||e.key==="Enter") eq();
+        else if (e.key==="%") percent();
     })
 }
 
