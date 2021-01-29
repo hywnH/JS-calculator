@@ -59,8 +59,47 @@ body{
     color: white;
 }
 .clicked{
-    background-color:rgb(207, 93, 0);
+    animation: colorChange 0.2s forwards linear;
 }
 .last.operator{
     border-bottom-right-radius: 10px;
+}
+
+.clicked1{
+    animation: flash1 0.2s ease-in-out;
+}
+.clicked2{
+    animation: flash2 0.2s ease-in-out;
+}
+
+@keyframes flash1{
+    from{
+        background-color: auto;
+    }
+    50%{
+        background-color: rgb(170, 170, 170);
+    }
+    to{
+        background-color: auto;
+    }
+}
+@keyframes flash2{
+    from{
+        background-color: auto;
+    }
+    50%{
+        background-color: rgb(170, 170, 170);
+    }
+    to{
+        background-color: auto;
+    }
+}
+
+@keyframes colorChange{
+    from{
+        background-color: auto;
+    }
+    to{
+        background-color: rgb(207, 93, 0);
+    }
 }

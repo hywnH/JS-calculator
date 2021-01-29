@@ -62,12 +62,17 @@ function btnColor(){
         btn_sub.classList.remove("clicked");
         btn_add.classList.add("clicked");
     }
-    else{
+    else {
         btn_div.classList.remove("clicked");
         btn_mul.classList.remove("clicked");
         btn_sub.classList.remove("clicked");
         btn_add.classList.remove("clicked");
     };
+}
+
+function btn_flash(btn){
+    btn.classList.toggle("clicked1");
+    btn.classList.toggle("clicked2");
 }
 
 function allClear(){
@@ -148,6 +153,7 @@ function eq(){
 
 
 function input_0(){
+    btn_flash(btn_0);
     if (Dot){
         show += 0;
         input = parseFloat(show);
@@ -160,6 +166,7 @@ function input_0(){
 }
 
 function input_1(){
+    btn_flash(btn_1);
     if (Dot){
         show += 1;
         input = parseFloat(show);
@@ -172,6 +179,7 @@ function input_1(){
 }
 
 function input_2(){
+    btn_flash(btn_2);
     if (Dot){
         show += 2;
         input = parseFloat(show);
@@ -184,6 +192,7 @@ function input_2(){
 }
 
 function input_3(){
+    btn_flash(btn_3);
     if (Dot){
         show += 3;
         input = parseFloat(show);
@@ -196,6 +205,7 @@ function input_3(){
 }
 
 function input_4(){
+    btn_flash(btn_4);
     if (Dot){
         show += 4;
         input = parseFloat(show);
@@ -208,6 +218,7 @@ function input_4(){
 }
 
 function input_5(){
+    btn_flash(btn_5);
     if (Dot){
         show += 5;
         input = parseFloat(show);
@@ -220,6 +231,7 @@ function input_5(){
 }
 
 function input_6(){
+    btn_flash(btn_6);
     if (Dot){
         show += 6;
         input = parseFloat(show);
@@ -232,6 +244,7 @@ function input_6(){
 }
 
 function input_7(){
+    btn_flash(btn_7);
     if (Dot){
         show += 7;
         input = parseFloat(show);
@@ -244,6 +257,7 @@ function input_7(){
 }
 
 function input_8(){
+    btn_flash(btn_8);
     if (Dot){
         show += 8;
         input = parseFloat(show);
@@ -256,6 +270,7 @@ function input_8(){
 }
 
 function input_9(){
+    btn_flash(btn_9);
     if (Dot){
         show += 9;
         input = parseFloat(show);
@@ -268,13 +283,31 @@ function input_9(){
 }
 
 function dot(){
-    Dot = true;
-    decimal = "";
-    show = `${input}.`;
-    update();
+    if (Dot){
+        show = "2 dot err";
+        update();
+    }
+    else{
+        btn_flash(btn_dot);
+        Dot = true;
+        decimal = "";
+        show = `${input}.`;
+        update();
+    }
 }
 
 function waitInput(){
+    btn_0.classList.add("clicked1");
+    btn_1.classList.add("clicked1");
+    btn_2.classList.add("clicked1");
+    btn_3.classList.add("clicked1");
+    btn_4.classList.add("clicked1");
+    btn_5.classList.add("clicked1");
+    btn_6.classList.add("clicked1");
+    btn_7.classList.add("clicked1");
+    btn_8.classList.add("clicked1");
+    btn_9.classList.add("clicked1");
+    btn_dot.classList.add("clicked1");
     btn_AC.addEventListener("click", allClear);
     btn_C.addEventListener("click", clear);
     btn_per.addEventListener("click", percent);
